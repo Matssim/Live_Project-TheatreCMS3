@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Donate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*in-line styling for the meantime, ask for an alternative for overriding bootstraps native fonts*@
+<div class="text-center broadway-font">
+    <h2 class="m-4">Consider Making A Donation</h2>
+</div>
+
+@using (Html.BeginForm("Donate", "Home", FormMethod.Post))
+{ 
+    <div class="container-fluid cms-bg-main p-4 rounded">
+        @*first row: contains the Name identifier and two seperate form inputs for first name and last name*@
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="text-right">*Name: </h4>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <input name="FirstName" type="text" class="form-control" placeholder="First Name (Required Field)" required />
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <input name="LastName" type="text" class="form-control" placeholder="Last Name (Required Field)" required />
+                </div>
+            </div>
+        </div>
+        @*first row end*@
+    
+        @*second row: contains email addres input and its identifier*@
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="text-right">*Email Address: </h4>
+            </div>
+            <div class="form-group col-md-9">
+                <input name="EmailAddress" type="email" class="form-control" placeholder="Email Address (Required Field)" required />
+            </div>
+        </div>
+        @*end second row*@
+    
+        @*third row: address and label (address is not necessary)*@
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="text-right">Address: </h4>
+            </div>
+            <div class="form-group col-md-9">
+                <input name="Address" type="text" class="form-control" placeholder="Address" />
+            </div>
+        </div>
+        @*end third row*@
+    
+        @*fourth row: donation amount and label, has type "number" so the user can't enter anything but numericals (required field)*@
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="text-right">*Donation Amount($): </h4>
+            </div>
+            <div class="form-group col-md-9">
+                <input name="DonationAmount" type="number" class="form-control" placeholder="Enter your donation amount (Required Field)" required />
+            </div>
+        </div>
+        @*fourth row end*@
+    
+        @*fifth and final row: another optional field for the user to leave comments a long with their donation*@
+        <div class="row">
+            <div class="col-sm-3 mt-md-4">
+                <h4 class="text-right ">Donation Comments: </h4>
+            </div>
+            <div class="form-group col-md-9">
+                <input name="DonationComments" type="text" class="form-control py-5" placeholder="Leave any comments here" />
+            </div>
+        </div>
+        @*end fifth row*@
+    
+        <button type="submit" class="btn btn-light btn-block mt-lg-4">Submit</button>
+    
+    </div>
+
+}

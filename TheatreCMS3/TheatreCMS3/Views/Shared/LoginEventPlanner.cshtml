@@ -1,0 +1,16 @@
+﻿
+@using Microsoft.AspNet.Identity
+@if (!Request.IsAuthenticated)
+{
+<style>
+    .login-event-planner-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: #bd1a11;
+        
+    }
+</style>
+
+                <button class="login-event-planner-btn" onclick="location.href='@Url.Action("LoginAsEventPlanner", "Account",  new { area = "" })'">Log in as Event Planner</button>}

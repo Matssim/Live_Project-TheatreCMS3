@@ -1,0 +1,109 @@
+﻿@model IEnumerable<TheatreCMS3.Models.CalendarEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({ customClass : "cms-text-dark" });
+    });
+</script>
+
+<h2>Index</h2>
+
+<div>
+    @Html.ActionLink("Create New", "Create", null,  new { @class = "btn btn-light mb-2" })
+</div>
+
+<div class="container py-3 cms-text-dark cms-bg-light rounded">
+@foreach (var item in Model)
+{
+    <div class="row align-items-center my-4">
+        <div class="col">
+            <h3 class="row justify-content-center">
+                @item.StartDate.Day
+            </h3>
+            <h6 class="row justify-content-center">
+                @item.StartDate.ToString("MMM")
+            </h6>
+            @{
+                if (item.AllDay)
+                {
+                    <h6 class="row justify-content-center">All Day</h6>
+                }
+                else
+                {
+                    TimeSpan duration = item.EndDate - item.StartDate;
+                    int durationDays = duration.Days + 1;
+                    if (durationDays > 1)
+                    {
+                        <h6 class="row justify-content-center">
+                            <a href="#" data-toggle="popover" title="Event Duration" data-content="This is a @durationDays day event">
+                                @durationDays day <i class="fas fa-clock"></i>
+                            </a>
+                        </h6>
+                    }
+                }
+            }
+        </div>
+
+        <div class="col">
+            <h6 class="row font-weight-bold mb-0">
+                @item.Title
+                @{
+                    var days = (item.EndDate - DateTime.Now).Days;
+
+                    if (days > 1)
+                    {
+                        <span class="badge bg-primary cms-text-light ml-1">@days days left</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger cms-text-light ml-1">Last Day!</span>
+                    }
+                }
+
+            </h6>
+
+            @{
+                var timestring = "";
+                if (item.StartTime.HasValue)
+                {
+                    timestring += item.StartTime.Value.ToShortTimeString();
+                }
+                if (item.EndTime.HasValue)
+                {
+                    timestring += " - ";
+                    timestring += item.EndTime.Value.ToShortTimeString();
+                }
+                if (item.AllDay)
+                {
+                    timestring = "";
+                }
+
+                if (!timestring.IsEmpty()) {
+                    <small class="row mb-1">@timestring</small>
+                }
+            }
+
+            <div class="row">
+                Description goes here.
+            </div>
+        </div>
+        <div class="col">
+            @item.TicketsAvailable Tickets Available
+        </div>
+        <div class="col">
+            Production: @Html.DisplayFor(modelItem => item.IsProduction)
+        </div>
+        <div class="col">
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </div>
+    </div>
+}
+
+</div>

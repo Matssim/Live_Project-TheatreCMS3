@@ -1,0 +1,136 @@
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
+/*:root { /* Color palette for css */
+/* --main-color: #BD1A11;  Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*}*/
+/* Blog.css */
+
+
+/*BLOG AUTHOR AREA STYLING*/
+
+/*Styles the main form container for the create and edit pages*/
+.blog_author-create_edit-container {
+    background-color: #F04D44;
+    border-radius: 3vw;
+    margin: 5vw;
+    padding: 3%;
+}
+
+/*Sets a minimum width of 100px for the name and bio input fields*/
+.blog_author-create_edit-name_bio_input {
+    min-width: 100px;
+}
+
+/*Creates a container for the form buttons to align them horizontally and create vertical distance from the inputs*/
+.blog_author-create_edit-btn_container {
+    margin-top: 3vw;
+}
+
+/*Overrides the default styling for the buttons*/
+.blog_author-create_edit-btn {
+    color: white;
+    text-decoration: none;
+}
+
+/*Styles the warnign text for when a required field is not filled out*/
+.blog_author-create_edit-warning_text {
+    color: white;
+}
+
+/*Postions the details page content*/
+.blog_author-details-main_container {
+    border-radius: 3vw;
+    border: 5vw;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+/*Styles the author details navigation bar*/
+.blog_author-details-nav_container {
+    background-color: white;
+    border-radius: 0.5vw 0.5vw 0 0;
+    padding: 0.5vw 0.5vw 0vw 0.5vw;
+}
+
+/*Styles the container for the author content section/details card*/
+.blog_author-details-content_container {
+    background-color: white;
+    color: black;
+    border-radius: 0.5vw;
+    padding: 2vw 1vw 2vw 1vw;
+    display: flex;
+    align-items: stretch;
+}
+
+/*Stretches the author details column to fill empty space between the bio and dates relative to viewport. Acts as
+    a counter class to the hide_content class below*/
+.blog_author-details-show_content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Hides the whichever section it is added to*/
+.blog_author-details-hide_content {
+    visibility: hidden;
+    position: absolute;
+}
+
+/*Overrides the url styling for the social media buttons*/
+.blog_author-details-social_btn {
+    color: black;
+    text-decoration: none;
+}
+
+/*Makes the Joined and Left dates stick to the bottom of the card*/
+.blog_author-details-date_container {
+    margin-top: auto;
+}
+
+/*Creates a parent container for the return/edit/delete buttons for the author details card*/
+.blog_author-details-btn_container {
+    padding: 0.5vw 0vw 0.5vw 0vw;
+    color: black;
+    text-decoration: none;
+}
+
+/*Creates a space between the edit and delete buttons*/
+.blog_author-index-btn {
+    margin-left: 0.3vw;
+}
+
+/*Hides the delete modals by default*/
+.blog_author-index-hide_modal {
+    display: none;
+}
+
+/*Establishes an invisible overlay that positions the delete modal*/
+.blog_author-index-delete_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+/*Styles the delete modal and positions it in the overlay*/
+.blog_author-index-delete_content {
+    background-color: #D6972A;
+    color: black;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+}
+
+/*END BLOG AUTHOR AREA STYLING*/

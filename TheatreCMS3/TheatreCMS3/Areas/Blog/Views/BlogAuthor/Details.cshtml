@@ -1,0 +1,76 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Main body content container*@
+<div class="container blog_author-details-main_container">
+
+    @*Author details card navbar*@
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto blog_author-details-nav_container">
+            @*Assigns an id to both the buttons and a data-attribute based on the model id for each object*@
+            <button class="btn btn-success" id="authorDetailsBtn-@Model.BlogAuthorId" data-author-id="@Model.BlogAuthorId">Author Details</button>
+            <button class="btn btn-dark" id="blogPostsBtn-@Model.BlogAuthorId" data-author-id="@Model.BlogAuthorId">Blog Posts</button>
+        </div>
+    </div>
+
+    @*Author details card*@
+    <div class="row blog_author-details-content_container">
+        @*Author photo*@
+        <div class="col">
+            <img src="\Content\images\placeholder.jpg" />
+        </div>
+        @*Details section*@
+        <div class="col d-flex flex-column blog_author-details-show_content" id="authorDetails-@Model.BlogAuthorId">
+            <div class="row align-items-center">
+                @*Author Name*@
+                <div class="col justify-content-md-left">
+                    <h3>@Html.DisplayFor(model => model.Name)</h3>
+                </div>
+                @*Social media buttons*@
+                <div class="col-md-auto justify-content-md-right">
+                    <a href="https://www.facebook.com" class="blog_author-details-social_btn"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com" class="blog_author-details-social_btn"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+            @*Author bio*@
+            <div class="row">
+                <div class="col-md-auto">@Html.DisplayFor(model => model.Bio)</div>
+            </div>
+            @*Joined and Left dates*@
+            <div class="blog_author-details-date_container">
+                <div class="row">
+                    <div class="col-md-auto">
+                        <h6>Joined Date</h6>
+                        @Html.DisplayFor(model => model.Joined)
+                    </div>
+                    <div class="col-md-auto">
+                        <h6>Left Date</h6>
+                        @Html.DisplayFor(model => model.Left)
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Blog posts section*@
+        <div class="col d-flex flex-column blog_author-details-hide_content" id="blogPosts-@Model.BlogAuthorId">
+            <div class="row align-items-center">
+                <p>(Implement in future stories)</p>
+            </div>
+        </div>
+    </div>
+
+    @*Return/Edit/Delete buttons*@
+    <div class="row">
+        <div class="col blog_author-details-btn_container justify-content-md-left">
+            <a href="@Url.Action("Index")" class="btn btn-dark custom-btn"><i class="fas fa-arrow-circle-left fa-sm"></i> Back to List</a>
+            <a href="@Url.Action("Edit", new { id = Model.BlogAuthorId })" class="btn btn-success"><i class="fas fa-edit fa-sm"></i> Edit</a>
+        </div>
+        <div class="col-md-auto justify-content-md-right blog_author-details-btn_container">
+            <a href="@Url.Action("Delete", new { id = Model.BlogAuthorId })" class="btn btn-danger"><i class="fas fa-trash-alt fa-lg"></i></a>
+        </div>
+    </div>
+</div>
+

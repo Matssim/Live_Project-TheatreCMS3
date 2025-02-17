@@ -1,0 +1,73 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    /*Updated Bootstrap classes and custom CSS to style form in line with project outlines*/
+
+<div class="form-horizontal blog_author-create_edit-container">
+    @Html.ValidationSummary(true, "", new { @class = "blog_author-create_edit-warning_text" })
+    @Html.HiddenFor(model => model.BlogAuthorId)
+
+
+    <div class="form-group blog_author-create_edit-name_bio_input">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+        <div class="d-flex">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "blog_author-create_edit-warning_text" })
+        </div>
+    </div>
+
+    <!--Updated field to text area with 4 rows-->
+    <div class="form-group blog_author-create_edit-name_bio_input">
+        @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label" })
+        <div class="d-flex">
+            @Html.TextAreaFor(model => model.Bio, new { @class = "form-control", rows = "4" })
+            @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "blog_author-create_edit-warning_text" })
+        </div>
+    </div>
+
+    <!--Placed the Joined and Left fields on a single row with wrap-functionality relative to viewport-->
+    <div class="form-row d-flex justify-content-center">
+        <!--Added the type selector to both inputs making them datetime-selector fields-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!--Updated to input field with the value set as the Joined attribute value converted to a string in the "yyyy-MM-dd" format.-->
+                <input type="date" class="form-control" name="Joined" value="@(Model.Joined.ToString("yyyy-MM-dd"))" />
+                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "blog_author-create_edit-warning_text" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!--Updated to input field with the value set as an expression that checks if the Joined attribute has a value and renders that value as a  
+                    string to the input field. If it has no value (as it is an optional field) an empty string is returned-->
+                <input type="date" class="form-control" name="Left" value="@(Model.Left.HasValue ? Model.Left.Value.ToString("yyyy-MM-dd") : string.Empty)" />
+                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "blog_author-create_edit-warning_text" })
+            </div>
+        </div>
+    </div>
+
+    <!--Placed the form buttons on a single row with wrap-functionality relative to viewport-->
+    <div class="d-flex align-content-stretch flex-wrap blog_author-create_edit-btn_container">
+        <!--Updated Bootsrap and custom CSS to style both buttons-->
+        <div class="order-1 p-2">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark blog_author-create_edit-btn" })
+        </div>
+        <div class="order-2 p-2">
+            <input type="submit" value="Save" class="btn btn-success blog_author-create_edit-btn" />
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

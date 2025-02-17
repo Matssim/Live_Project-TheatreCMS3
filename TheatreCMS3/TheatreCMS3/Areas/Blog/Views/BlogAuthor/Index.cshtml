@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*Link to Create Blog Author view*@
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@*Iterates over and renders a partial view for each Blog Author in the database*@
+@foreach (var item in Model)
+{
+    <div>
+        @Html.Partial("_BlogAuthor", item)
+    </div>
+}
