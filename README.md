@@ -2,8 +2,8 @@
 In this project I worked on a team to develop an interactive website, for managing the content and productions for a theatre/acting company. The project is divided into functional areas, where I was assigned to the blog area, working primarily on the BlogAuthor section during my sprint. As the name suggest, this section is a CMS, where users who are not necessarily tech savvy can manage the profiles of contributors to the site’s blog.  
 
 The project is built using ASP.NET MVC and the Entity framework and there were essentially 3 main objectives to building the BlogAuthor section: 
-* [Setting up the BlogAuthor model and  CRUD pages](#model-and-crud-pages) 
-* [Creating a profile card structure for each author](#profile-card-ui)  
+* [Setting up the BlogAuthor model and CRUD pages](#model-and-crud-pages) 
+* [Creating a profile card UI structure](#profile-card-ui)  
 * [Setting up partial views and an asynchronous delete modal on the index page](#partial-views-and-async-delete-modal)
 
 These objectives had to be completed within the confines of the project’s predetermined styling, naming conventions and file structure.
@@ -21,7 +21,7 @@ In addition to an Id/primary key property, the BlogAuthor object tracks 3 requir
         public DateTime? Left { get; set; }
     } 
 
-I tied the BlogAuthor model to the project’s Identity Models and used the Entity framework package to scaffold the Create, Delete, Details, Edit and Index pages.  
+I tied the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Models/BlogAuthor.cs">BlogAuthor model</a> to the project’s Identity Models and used the Entity framework package to scaffold the Create, Delete, Details, Edit and Index pages.  
 
 For the front-end on the CRUD pages, I built most of the required structure with Bootstrap’s flexbox grid structure, adding a few custom CSS classes to align the pages with the project’s color palette.   
 
@@ -71,6 +71,7 @@ For the Create and Edit views, I also adjusted the type value for the Joined and
 ```
 
 ## Profile Card UI 
+Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Partial views and async delete modal](#partial-views-and-async-delete-modal)
 
 I was tasked with building an author card structure for the Details and Delete views, with specific requirements for social media buttons, positioning of the contents, and the ability to toggle between author details and their blog posts (which would later be connected with the separate Blog Posts section to display in the card). There were also requirements to add icons to the buttons and functional styling changes that indicates which section for the card that the user is viewing.  
 
@@ -159,6 +160,7 @@ Profile card CSHTML:
 ```
 
 ## Partial views and async delete modal 
+Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Profile Card UI](#profile-card-ui)
 
 For the final user stories in the blog author section, I was tasked with making the index page present the list of authors in their respective profile cards, as designed for the Details and Delete views, instead of the standard table structure, created in the Entity scaffold. I accomplished this by creating a partial view and replacing most of the contents of the index view with a C# foreach statement, that iterates over each author in the database and passes them as parameters for renditions of the partial view.  
 
@@ -237,6 +239,8 @@ However, since Razor is evaluated on the server side and JavaScript runs on the 
             success: function () {
                 $('#blogAuthor-' + authorId).fadeOut(2000);
             },
+
+Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Profile Card UI](#profile-card-ui), [Partial views and async delete modal](#partial-views-and-async-delete-modal)
             error: function () {
                 alert("An error occurred while deleting the author.");
             }
