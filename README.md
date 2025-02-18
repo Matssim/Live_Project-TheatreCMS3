@@ -160,7 +160,7 @@ Profile card CSHTML:
 ```
 
 ## Partial views and async delete modal 
-Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui)
+Jump to: [Page Top](#live-project---theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui)
 
 For the final user stories in the blog author section, I was tasked with making the index page present the list of authors in their respective profile cards, as designed for the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Details.cshtml">Details</a> and <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Delete.cshtml">Delete</a> views, instead of the standard table structure, created in the Entity scaffold. I accomplished this by creating a partial view and replacing most of the contents of the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Index.cshtml">index</a> view with a C# foreach statement, that iterates over each author in the database and passes them as parameters for renditions of the partial view.  
 
@@ -246,4 +246,4 @@ However, since Razor is evaluated on the server side and JavaScript runs on the 
         $('#delete_modal-' + authorId).addClass("blog_author-index-hide_modal").removeClass("blog_author-index-delete_modal");
     }); 
     
-Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
+Jump to: [Page Top](#live-project---theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
