@@ -51,7 +51,7 @@ For the front-end on the CRUD pages, I built most of the required structure with
 
 For the Create and Edit views, I also adjusted the type value for the Joined and Left properties’ input fields to “date”, so they present a more user friendly datepicker interface. For the Edit view, I also introduced some razor syntax to the values of these fields, to make sure the fields populated on initial load.  
 
-<!--
+```html
     <div class="form-row d-flex justify-content-center">
         <div class="form-group">
             @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -68,7 +68,7 @@ For the Create and Edit views, I also adjusted the type value for the Joined and
             </div>
         </div>
     </div> 
--->
+
 
 ## Profile Card UI 
 
@@ -98,7 +98,7 @@ For the UI structure and button styling for the card I used Bootstrap and for th
 
 Profile card CSHTML:
 
-<!--
+```html
     <div class="container blog_author-details-main_container" id="blogAuthor-@Model.BlogAuthorId">
     
         <div class="row justify-content-md-center">
@@ -156,7 +156,7 @@ Profile card CSHTML:
             </div>
         </div>
     </div>
--->
+
 
 ## Partial views and async delete modal 
 
@@ -177,7 +177,7 @@ I accomplished this by writing jQuery and an AJAX function, as well as a modal i
 
 Delete modal CSHTML:
 
-<!--
+```html
     <div id="delete_modal-@Model.BlogAuthorId" class="blog_author-index-hide_modal">
         <div class="blog_author-index-delete_content">
             <div class="row justify-content-md-center">
@@ -191,7 +191,7 @@ Delete modal CSHTML:
             </div>
         </div>
     </div> 
--->
+
   
 Controller method:
 
