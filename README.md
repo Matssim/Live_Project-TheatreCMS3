@@ -239,11 +239,11 @@ However, since Razor is evaluated on the server side and JavaScript runs on the 
             success: function () {
                 $('#blogAuthor-' + authorId).fadeOut(2000);
             },
-
-Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
             error: function () {
                 alert("An error occurred while deleting the author.");
             }
         });
         $('#delete_modal-' + authorId).addClass("blog_author-index-hide_modal").removeClass("blog_author-index-delete_modal");
     }); 
+    
+Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
