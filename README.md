@@ -51,7 +51,7 @@ For the front-end on the CRUD pages, I built most of the required structure with
 
 For the Create and Edit views, I also adjusted the type value for the Joined and Left properties’ input fields to “date”, so they present a more user friendly datepicker interface. For the Edit view, I also introduced some razor syntax to the values of these fields, to make sure the fields populated on initial load.  
 
-
+<!--
     <div class="form-row d-flex justify-content-center">
         <div class="form-group">
             @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -68,13 +68,13 @@ For the Create and Edit views, I also adjusted the type value for the Joined and
             </div>
         </div>
     </div> 
-
+-->
 
 ## Profile Card UI 
 
 I was tasked with building an author card structure for the Details and Delete views, with specific requirements for social media buttons, positioning of the contents, and the ability to toggle between author details and their blog posts (which would later be connected with the separate Blog Posts section to display in the card). There were also requirements to add icons to the buttons and functional styling changes that indicates which section for the card that the user is viewing.  
 
-[INSERT GIF OF AUTHOR CARD] 
+![AUTHOR CARD DEMO](https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/PresentationMaterials/AuthorCardDemo-ezgif.com-video-to-gif-converter.gif) 
 
 For the UI structure and button styling for the card I used Bootstrap and for the icons, I deployed classes from the fontawesome library. I added a few custom CSS classes to align the pages with the project’s color palette, override font-styling for links etc. I also used custom CSS to enable the toggle functionality. Specifically, I added jQuery, triggered by the buttons, to add/remove classes that determine whether certain sections are shown/hidden and how buttons are styled.  
 
@@ -98,6 +98,7 @@ For the UI structure and button styling for the card I used Bootstrap and for th
 
 Profile card CSHTML:
 
+<!--
     <div class="container blog_author-details-main_container" id="blogAuthor-@Model.BlogAuthorId">
     
         <div class="row justify-content-md-center">
@@ -155,7 +156,7 @@ Profile card CSHTML:
             </div>
         </div>
     </div>
-
+-->
 
 ## Partial views and async delete modal 
 
@@ -170,12 +171,13 @@ For the final user stories in the blog author section, I was tasked with making 
 
 I was also tasked with making an interactive modal, that would allow the user to delete authors from the index page without leaving or reloading the site. Another requirement was for the deleted author card to fade out.  
 
-[INSERT GIF OF ASYNC DELETE MODAL] 
+![ASYNC DELETE MODAL DEMO](https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/PresentationMaterials/DeleteModalDemo-ezgif.com-video-to-gif-converter.gif)
 
 I accomplished this by writing jQuery and an AJAX function, as well as a modal in the partial view and a JSON controller class. I used the same jQuery principles to hide/show the delete modal that I used to toggle between the author details/blog posts in the profile cards. 
 
 Delete modal CSHTML:
 
+<!--
     <div id="delete_modal-@Model.BlogAuthorId" class="blog_author-index-hide_modal">
         <div class="blog_author-index-delete_content">
             <div class="row justify-content-md-center">
@@ -189,7 +191,8 @@ Delete modal CSHTML:
             </div>
         </div>
     </div> 
-    
+-->
+  
 Controller method:
 
     [HttpPost]
