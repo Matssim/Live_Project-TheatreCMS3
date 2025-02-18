@@ -11,6 +11,7 @@ These objectives had to be completed within the confines of the project’s pred
 
 ## Model and CRUD pages 
 Jump to: [Page Top](#live-project---theatrecms3) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
+
 In addition to an Id/primary key property, the BlogAuthor object tracks 3 required properties: the author’s name, bio and the date that they joined, and an optional property for when they left.  
 
     public class BlogAuthor
