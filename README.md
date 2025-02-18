@@ -21,9 +21,9 @@ In addition to an Id/primary key property, the BlogAuthor object tracks 3 requir
         public DateTime? Left { get; set; }
     } 
 
-I tied the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Models/BlogAuthor.cs">BlogAuthor model</a> to the project’s Identity Models and used the Entity framework package to scaffold the Create, Delete, Details, Edit and Index pages.  
+I tied the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Models/BlogAuthor.cs">BlogAuthor model</a> to the project’s <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Models/IdentityModels.cs">Identity Models<a> and used the Entity framework package to scaffold the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Create.cshtml">Create</a>, <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Delete.cshtml">Delete</a>, <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Details.cshtml">Details</a>, <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Edit.cshtml">Edit</a> and <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Index.cshtml">Index</a> pages.  
 
-For the front-end on the CRUD pages, I built most of the required structure with Bootstrap’s flexbox grid structure, adding a few custom CSS classes to align the pages with the project’s color palette.   
+For the front-end on the CRUD pages, I built most of the required structure with Bootstrap’s flexbox grid structure, adding a few <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Content/Areas/Blog.css">Custom CSS</a> classes to align the pages with the project’s color palette.   
 
     .blog_author-create_edit-container {
         background-color: #F04D44;
@@ -49,7 +49,7 @@ For the front-end on the CRUD pages, I built most of the required structure with
         color: white;
     }
 
-For the Create and Edit views, I also adjusted the type value for the Joined and Left properties’ input fields to “date”, so they present a more user friendly datepicker interface. For the Edit view, I also introduced some razor syntax to the values of these fields, to make sure the fields populated on initial load.  
+For the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Create.cshtml">Create</a> and <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Edit.cshtml">Edit</a> views, I also adjusted the type value for the Joined and Left properties’ input fields to “date”, so they present a more user friendly datepicker interface. For the Edit view, I also introduced some razor syntax to the values of these fields, to make sure the fields populated on initial load.  
 
 ```html
     <div class="form-row d-flex justify-content-center">
@@ -71,13 +71,13 @@ For the Create and Edit views, I also adjusted the type value for the Joined and
 ```
 
 ## Profile Card UI 
-Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Partial views and async delete modal](#partial-views-and-async-delete-modal)
+Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
 
 I was tasked with building an author card structure for the Details and Delete views, with specific requirements for social media buttons, positioning of the contents, and the ability to toggle between author details and their blog posts (which would later be connected with the separate Blog Posts section to display in the card). There were also requirements to add icons to the buttons and functional styling changes that indicates which section for the card that the user is viewing.  
 
 ![AUTHOR CARD DEMO](https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/PresentationMaterials/AuthorCardDemo-ezgif.com-video-to-gif-converter.gif) 
 
-For the UI structure and button styling for the card I used Bootstrap and for the icons, I deployed classes from the fontawesome library. I added a few custom CSS classes to align the pages with the project’s color palette, override font-styling for links etc. I also used custom CSS to enable the toggle functionality. Specifically, I added jQuery, triggered by the buttons, to add/remove classes that determine whether certain sections are shown/hidden and how buttons are styled.  
+For the UI structure and button styling for the card I used Bootstrap and for the icons, I deployed classes from the fontawesome library. I added a few <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Content/Areas/Blog.css">Custom CSS</a> classes to align the pages with the project’s color palette, override font-styling for links etc. I also used custom CSS to enable the toggle functionality. Specifically, I added <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Scripts/Areas/Blog.js">jQuery</a>, triggered by the buttons, to add/remove classes that determine whether certain sections are shown/hidden and how buttons are styled.  
 
     //VIEW AUTHOR DETAILS FUNCTION
     $("[id^=authorDetailsBtn]").on('click',function () {
@@ -160,9 +160,9 @@ Profile card CSHTML:
 ```
 
 ## Partial views and async delete modal 
-Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Profile Card UI](#profile-card-ui)
+Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui)
 
-For the final user stories in the blog author section, I was tasked with making the index page present the list of authors in their respective profile cards, as designed for the Details and Delete views, instead of the standard table structure, created in the Entity scaffold. I accomplished this by creating a partial view and replacing most of the contents of the index view with a C# foreach statement, that iterates over each author in the database and passes them as parameters for renditions of the partial view.  
+For the final user stories in the blog author section, I was tasked with making the index page present the list of authors in their respective profile cards, as designed for the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Details.cshtml">Details</a> and <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Delete.cshtml">Delete</a> views, instead of the standard table structure, created in the Entity scaffold. I accomplished this by creating a partial view and replacing most of the contents of the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Views/BlogAuthor/Index.cshtml">index</a> view with a C# foreach statement, that iterates over each author in the database and passes them as parameters for renditions of the partial view.  
 
 ```html
     @foreach (var item in Model)
@@ -177,7 +177,7 @@ I was also tasked with making an interactive modal, that would allow the user to
 
 ![ASYNC DELETE MODAL DEMO](https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/PresentationMaterials/DeleteModalDemo-ezgif.com-video-to-gif-converter.gif)
 
-I accomplished this by writing jQuery and an AJAX function, as well as a modal in the partial view and a JSON controller class. I used the same jQuery principles to hide/show the delete modal that I used to toggle between the author details/blog posts in the profile cards. 
+I accomplished this by writing <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Scripts/Areas/Blog.js">jQuery and an AJAX function</a>, as well as a modal in the partial view and a <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/TheatreCMS3/TheatreCMS3/Areas/Blog/Controllers/BlogAuthorController.cs">JSON controller class</a>. I used the same jQuery principles to hide/show the delete modal that I used to toggle between the author details/blog posts in the profile cards. 
 
 Delete modal CSHTML:
 
@@ -240,7 +240,7 @@ However, since Razor is evaluated on the server side and JavaScript runs on the 
                 $('#blogAuthor-' + authorId).fadeOut(2000);
             },
 
-Jump to: [Page Top](#live-project-theatrecms3),[Model and CRUD pages](#model-and-crud-pages), [Profile Card UI](#profile-card-ui), [Partial views and async delete modal](#partial-views-and-async-delete-modal)
+Jump to: [Page Top](#live-project-theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Profile Card UI](#profile-card-ui) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
             error: function () {
                 alert("An error occurred while deleting the author.");
             }
