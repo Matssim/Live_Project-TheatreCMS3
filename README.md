@@ -68,7 +68,7 @@ For the Create and Edit views, I also adjusted the type value for the Joined and
             </div>
         </div>
     </div> 
-
+```
 
 ## Profile Card UI 
 
@@ -156,18 +156,20 @@ Profile card CSHTML:
             </div>
         </div>
     </div>
-
+```
 
 ## Partial views and async delete modal 
 
 For the final user stories in the blog author section, I was tasked with making the index page present the list of authors in their respective profile cards, as designed for the Details and Delete views, instead of the standard table structure, created in the Entity scaffold. I accomplished this by creating a partial view and replacing most of the contents of the index view with a C# foreach statement, that iterates over each author in the database and passes them as parameters for renditions of the partial view.  
 
+```html
     @foreach (var item in Model)
     {
         <div>
             @Html.Partial("_BlogAuthor", item)
         </div>
-    } 
+    }
+```
 
 I was also tasked with making an interactive modal, that would allow the user to delete authors from the index page without leaving or reloading the site. Another requirement was for the deleted author card to fade out.  
 
@@ -191,7 +193,7 @@ Delete modal CSHTML:
             </div>
         </div>
     </div> 
-
+```
   
 Controller method:
 
