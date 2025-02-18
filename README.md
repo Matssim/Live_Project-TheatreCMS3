@@ -71,7 +71,7 @@ For the <a href="https://github.com/Matssim/Live_Project-TheatreCMS3/blob/main/T
 ```
 
 ## Profile Card UI 
-Jump to: [Page Top](#live--project--theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
+Jump to: [Page Top](#live-project---theatrecms3) | [Model and CRUD pages](#model-and-crud-pages) | [Partial views and async delete modal](#partial-views-and-async-delete-modal)
 
 I was tasked with building an author card structure for the Details and Delete views, with specific requirements for social media buttons, positioning of the contents, and the ability to toggle between author details and their blog posts (which would later be connected with the separate Blog Posts section to display in the card). There were also requirements to add icons to the buttons and functional styling changes that indicates which section for the card that the user is viewing.  
 
